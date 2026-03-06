@@ -38,10 +38,9 @@ Ce projet implémente et compare différents algorithmes de planification de che
 .
 ├── astar.py                    # Implémentation des algorithmes de recherche
 ├── markov.py                   # Chaînes de Markov et analyse stochastique
-├── experiments.py              # Expériences et visualisations
-├── generate_figures.py         # Génération de figures haute résolution
-├── notebook_farahi.ipynb       # Notebook Jupyter d'exploration
-├── rapport_farahi.pdf          # Rapport détaillé du projet
+├── experiments.py              # Expériences et visualisations principales
+├── generate_figures.py         # Génération de figures haute résolution individuelles
+├── .gitignore                  # Fichiers à ignorer par Git
 └── README.md                   # Ce fichier
 ```
 
@@ -166,6 +165,32 @@ Le projet génère des visualisations stylisées avec :
 - Les positions sont en format (ligne, colonne)
 - Les actions sont : haut, bas, gauche, droite
 - L'incertitude ε représente la probabilité de dévier perpendiculairement
+
+## ⚙️ Configuration Git
+
+Le projet inclut un `.gitignore` qui exclut automatiquement :
+- `__pycache__/` et fichiers bytecode Python
+- Environnements virtuels
+- Fichiers IDE
+- Figures générées (outputs)
+- Fichiers système
+
+## � Dépannage
+
+### Erreur de chemin sous Windows
+Si vous rencontrez des erreurs de type `FileNotFoundError`, assurez-vous que les chemins dans les scripts utilisent des chemins relatifs (déjà corrigé dans la version actuelle).
+
+### Problèmes d'affichage des graphiques
+Si les graphiques ne s'affichent pas correctement :
+```bash
+pip install --upgrade matplotlib
+```
+
+### Performance lente
+Pour les simulations Monte-Carlo, réduire `n_sim` dans `experiments.py` :
+```python
+exp2_epsilon('medium', n_sim=1000)  # Au lieu de 3000
+```
 
 ## 🤝 Auteur
 
